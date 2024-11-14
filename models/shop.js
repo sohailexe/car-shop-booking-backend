@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const shopSchema = new mongoose.Schema({
+const shopSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -12,7 +12,7 @@ const shopSchema = new mongoose.Schema({
   },
   services: [
     {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: "Service",
     },
   ],
@@ -29,4 +29,6 @@ const shopSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now },
 });
 
-const Shop = mongoose.model("Shop", shopSchema);
+const Shop = model("Shop", shopSchema);
+
+export default Shop;

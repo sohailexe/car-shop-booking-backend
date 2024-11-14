@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const bookingSchema = new mongoose.Schema({
+const bookingSchema = new Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User ",
@@ -27,4 +27,5 @@ const bookingSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now },
 });
 
-const Booking = mongoose.model("Booking", bookingSchema);
+const Booking = model("Booking", bookingSchema);
+export default Booking;
